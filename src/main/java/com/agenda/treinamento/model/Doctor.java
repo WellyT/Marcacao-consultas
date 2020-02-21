@@ -1,16 +1,13 @@
 package com.agenda.treinamento.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User implements Serializable{
+public class Doctor{
 
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,51 +18,63 @@ public class User implements Serializable{
 	private int age;
 	private String email;
 	private String password;
-	private MedicalConsultation consultation;
+	private String crm;
+
 	
-	
-	public MedicalConsultation getConsultation() {
-		return consultation;
-	}
-	public void setConsultation(MedicalConsultation consultation) {
-		this.consultation = consultation;
-	}
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	public String getName() {
 		return name;
 	}
-	public void setName(String nome) {
-		this.name = nome;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getCpf() {
 		return cpf;
 	}
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 	public int getAge() {
 		return age;
 	}
-	public void setAge(int idade) {
-		this.age = idade;
+
+	public void setAge(int age) {
+		this.age = age;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getCrm() {
+		return crm;
+	}
+
+	public void setCrm(String crm) {
+		this.crm = crm;
+	}
 	
 }
