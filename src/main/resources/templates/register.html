@@ -1,110 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Sign-in</title>
-	<style>
-	*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: open sans;
-}
-body{
-    min-height: 100vh;
-    background-image: linear-gradient(120deg,#3498db,#8e44ad);
-}
-.signup-form{
-width: 360px;
-background: #f1f1f1;
-height: 580px;
-padding: 80px 40px;
-border-radius: 10px;
-position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%,-50%)
-}
-.signup-form h1{
-    text-align: center;
-    margin-bottom: 60px;
-
-}
-.txtb{
-    border-bottom: 2px solid #adadad;
-    position: relative;
-    margin: 30px 0;
-}
-.txtb input{
-    font-size: 20px;
-    color: #333;
-    border: none;
-    width: 100%;
-    outline: none;
-    background: none;
-    padding: 0 5px;
-    height: 40px;
-}
-
-.logbtn{
-display: block;
-width: 100%;
-height: 50px;
-border: none;
-background: linear-gradient(120deg,#3498db,#8e44ad);
-background-size: 200%;
-color: #fff;
-outline: none;
-cursor: pointer;
-transition: .5s;
-}
-.logbtn:hover{
-    background-position: right;
-}
-.bottom-text{
-    text-decoration: none;
-    color: #fff;
-    font-family: 'open sans',sans-serif;
-    font-size: 14px;
-    padding: 55px;
-    transition: 0.5s;
-    display: block;
-    text-align: center;
-}
-	
-
-</style>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Sign-up</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
- <form method="get" class="signup-form">
-        <h1>Sign up</h1>
+	<div class="col-md-6 offset-md-3">
 
-        <div class="txtb">
-            <input type="text" required="required" placeholder="Nome">
-            
-        </div>
-        <div class="txtb">
-            <input type="email" required="required" placeholder="Email">
-            
-        </div>
-        <div class="txtb">
-            <input type="password" required="required" placeholder="Password">
-            
-        </div>
-        <div class="txtb">
-        	<input type="number" required="required" placeholder="Idade">
-        </div>
-         <div class="txtb">
-        	<input type="text" required="required" placeholder="CPF">
-        </div>
-
-        <input type="submit" class="logbtn" value="Sign-up">
-
-        <div class="bottom-text">
-            <a href="/">Already have an account?</a>
-        </div>
-        
-    </form>
-	
+		<form method="post" class="signup-form">
+			<div class="form-group">
+				<h1 class="text-center">Sign up</h1>
+				        
+				<input type="text" class="form-control mb-1" placeholder="Nome">
+				<input type="email" class="form-control mb-1" placeholder="Email">
+				<input type="password" class="form-control mb-1" placeholder="Password">
+				<input type="number" class="form-control mb-1" placeholder="Idade">
+				<input type="text" class="form-control mb-1" placeholder="CPF">
+				        
+				<input type="submit" class="btn btn-primary form-control mb-1" value="Sign-up">
+			
+				<div class="bottom-text">
+				<a href="/">Already have an account?</a>
+				</div>
+        	</div>
+    	</form>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

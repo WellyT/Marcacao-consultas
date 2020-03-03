@@ -9,22 +9,9 @@
 
 </head>
 <body>
-<!--   **Cabeçalho -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
-		th:fragment="cabecalho">
-		<a class="navbar-brand" href="/">Gerenciador de tarefas</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-app">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div  class="collapse navbar-collapse" id="navbar-app">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="/">Inicio</a>
-				<a class="nav-item nav-link" href="/cadUser">register</a>
-				<a class="nav-item nav-link" href="/mark">marcar</a>
-
-			</div>
-		</div>
-	</nav>
+  <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+  
+  <h1 style="text-align: center;">Welcome</h1>
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>

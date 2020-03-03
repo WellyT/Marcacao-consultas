@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class MedicalConsultation {
@@ -16,6 +17,7 @@ public class MedicalConsultation {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@OneToOne
 	private User user;
 	private Date date;
 	private String description;
