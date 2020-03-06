@@ -38,6 +38,7 @@ public class UserController {
 			return "redirect:/signup";
 		}
 		userService.save(user);
+		System.out.println(user.getName());
 		return "redirect:/";
 	}
 	
