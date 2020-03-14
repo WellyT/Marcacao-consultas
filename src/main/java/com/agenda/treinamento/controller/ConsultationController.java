@@ -10,31 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.agenda.treinamento.model.User;
-import com.agenda.treinamento.service.UserService;
+import com.agenda.treinamento.model.MedicalConsultation;
+import com.agenda.treinamento.service.ConsultationIService;
 
 
 @Controller
-public class UserController {
+public class ConsultationController {
 
 	@Autowired
-	UserService userService;
+	ConsultationIService consultationIService;
 	
-	
-	
-	@GetMapping("/signup")
-	public String registration() {
-		return "register";
+	@GetMapping("/mark")
+	public String mark(){
+		return "mark";
 	}
 	
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signUp(@Valid User user,BindingResult result, RedirectAttributes attributes) {
+	@RequestMapping(value = "/mark", method = RequestMethod.POST)
+	public String appointment(@Valid MedicalConsultation mc, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
-			return "redirect:/signup";
+			return "redirect:/mark";
 		}
-		userService.save(user);
-		return "redirect:/signup";
+		consultationIService.save(mc);
+		System.out.println("OK");
+		return "redirect:/mark";
 	}
-	
-	
 }

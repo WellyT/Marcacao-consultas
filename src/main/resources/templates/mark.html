@@ -13,23 +13,23 @@
   <body>
   <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
     <div class="container">
-    	<form class="">
-    	<div class="form-group">
-			<label for="input-1">Date:</label>
-			<input id="input-1" placeholder="Date" type="Date"/>
-		</div>
-		 <div class="form-group">
-    <label for="exampleFormControlTextarea1">Description</label>
-    <textarea style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  <input type="submit" class="btn btn-primary" value="Submit" id="button-1"/>
+    	<form method="post">
+		    <div class="form-group">
+				<label for="input-1">Date:</label>
+				<input id="input-1" class="form-control" placeholder="Date" name="date" type="Date"/>
+			</div>
+			<div class="form-group">
+		    	<label for="AppointmentValue">Value:</label>
+		   		<input type="number" class="form-control" name="value" id="AppointmentValue" />
+			</div>
+		  
+		  <input type="submit" class="btn btn-primary form-control" required value="Submit" id="button-1"/>
     	</form>
+    	
     </div>
     
     
 
-    <!-- JavaScript (Opcional) -->
-    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>

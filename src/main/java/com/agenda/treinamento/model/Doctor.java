@@ -18,7 +18,7 @@ public class Doctor{
 	private int age;
 	private String email;
 	private String password;
-	private String crm;
+	private String graduation;
 
 	
 	public long getId() {
@@ -69,12 +69,12 @@ public class Doctor{
 		this.password = password;
 	}
 
-	public String getCrm() {
-		return crm;
+	public String getGraduation() {
+		return graduation;
 	}
 
-	public void setCrm(String crm) {
-		this.crm = crm;
+	public void setGraduation(String formation) {
+		this.graduation = formation;
 	}
 	
 }

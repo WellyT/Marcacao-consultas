@@ -18,17 +18,8 @@ public class MedicalConsultation {
 	
 	
 	private Date date;
-	private String description;
 	private int value;
 	
-	
-	public int getValue() {
-		return value;
-	}
-	public void setValue(int value) {
-		this.value = value;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -41,12 +32,11 @@ public class MedicalConsultation {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getDescription() {
-		return description;
+	public int getValue() {
+		return value;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setValue(int value) {
+		this.value = value;
 	}
-	
 	
 }
