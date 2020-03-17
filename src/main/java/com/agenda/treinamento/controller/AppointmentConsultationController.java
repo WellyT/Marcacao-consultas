@@ -10,28 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.agenda.treinamento.model.MedicalConsultation;
-import com.agenda.treinamento.service.ConsultationIService;
-
+import com.agenda.treinamento.model.AppointmentConsultation;
+import com.agenda.treinamento.service.AppointmentConsultationIservice;
 
 @Controller
-public class ConsultationController {
+public class AppointmentConsultationController {
 
 	@Autowired
-	ConsultationIService consultationIService;
+	AppointmentConsultationIservice appointmentIService;
 	
 	@GetMapping("/mark")
-	public String mark(){
+	public String AppointmentConsultation() {
 		return "mark";
 	}
 	
 	@RequestMapping(value = "/mark", method = RequestMethod.POST)
-	public String appointment(@Valid MedicalConsultation mc, BindingResult result, RedirectAttributes attributes) {
+	public String Consultation(@Valid AppointmentConsultation consultation, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
-			return "redirect:/mark";
+			return "redirect:/";
 		}
-		consultationIService.save(mc);
-		System.out.println("OK");
+		appointmentIService.save(consultation);
 		return "redirect:/mark";
+		
 	}
 }
