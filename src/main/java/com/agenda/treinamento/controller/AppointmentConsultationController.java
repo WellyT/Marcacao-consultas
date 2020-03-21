@@ -1,5 +1,7 @@
 package com.agenda.treinamento.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.agenda.treinamento.model.AppointmentConsultation;
@@ -19,9 +22,13 @@ public class AppointmentConsultationController {
 	@Autowired
 	AppointmentConsultationIservice appointmentIService;
 	
-	@GetMapping("/mark")
-	public String AppointmentConsultation() {
-		return "mark";
+	@GetMapping("/doctorIndex")
+	public ModelAndView getAppointment() {
+		ModelAndView mv = new ModelAndView("doctorIndex");
+		mv.setViewName("doctor/doctorIndex");
+		List<AppointmentConsultation> appointmentConsultations = appointmentIService.findAll();
+		mv.addObject("doctorIndex", appointmentConsultations);
+		return mv;
 	}
 	
 	@RequestMapping(value = "/mark", method = RequestMethod.POST)
@@ -30,7 +37,11 @@ public class AppointmentConsultationController {
 			return "redirect:/";
 		}
 		appointmentIService.save(consultation);
-		return "redirect:/mark";
+		return "redirect:user/mark";
 		
+	}
+	@GetMapping("/mark")
+	public String medicalAppointment() {
+		return "user/mark";
 	}
 }

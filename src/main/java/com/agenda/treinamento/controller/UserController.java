@@ -20,21 +20,23 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	
+	@GetMapping("/")
+	public String userIndex() {
+		return "user/index";
+	}
 	
 	@GetMapping("/signup")
 	public String registration() {
-		return "register";
+		return "user/register";
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signUp(@Valid User user,BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
-			return "redirect:/signup";
+			return "redirect:user/signup";
 		}
 		userService.save(user);
-		return "redirect:/signup";
+		return "redirect:user/signup";
 	}
-	
 	
 }

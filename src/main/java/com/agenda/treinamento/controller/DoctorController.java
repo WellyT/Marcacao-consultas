@@ -18,6 +18,7 @@ public class DoctorController {
 	@Autowired
 	DoctorIService docservice;
 	
+	
 	@GetMapping(value = "/registerDoctor")
 	public String registerDoctor() {
 		return "doctor/registerDoctor";

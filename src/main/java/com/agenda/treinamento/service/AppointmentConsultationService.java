@@ -1,5 +1,7 @@
 package com.agenda.treinamento.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,12 @@ public class AppointmentConsultationService implements AppointmentConsultationIs
 	public AppointmentConsultation save(AppointmentConsultation consultation) {
 		// TODO Auto-generated method stub
 		return appointmentConsultation.save(consultation);
+	}
+
+	@Override
+	public List<AppointmentConsultation> findAll() {
+		// TODO Auto-generated method stub
+		return appointmentConsultation.findAll();
 	}
 
 }

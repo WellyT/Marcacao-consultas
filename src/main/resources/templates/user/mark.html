@@ -12,20 +12,20 @@
   </head>
   <body>
   <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
-
-    	<form method="post">
+<div class="container">
+    	<form method="post" class="form-horizontal">
 		    <div class="form-group">
-				<label for="input-1">Date:</label>
+				<label for="input-1">Date</label>
 				<input id="input-1" class="form-control" placeholder="Date" name="date" type="Date"/>
 			</div>
 			<div class="form-group">
-		    	<label for="AppointmentValue">Value:</label>
+		    	<label for="AppointmentValue">Value</label>
 		   		<input type="number" class="form-control" name="value" id="AppointmentValue" />
 			</div>
 		  
 		  <input type="submit" class="btn btn-primary form-control" value="Marcar"/>
     	</form>
-    	
+  </div> 	
     
     
 
