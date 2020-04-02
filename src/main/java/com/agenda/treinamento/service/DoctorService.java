@@ -1,6 +1,7 @@
 package com.agenda.treinamento.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.agenda.treinamento.model.Doctor;
@@ -12,6 +13,9 @@ public class DoctorService implements DoctorIService{
 	@Autowired
 	DoctorRepository doctorRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder passwardEncoder;
+	
 	@Override
 	public Doctor findbyid(long id) {
 		// TODO Auto-generated method stub
@@ -20,8 +24,12 @@ public class DoctorService implements DoctorIService{
 
 	@Override
 	public Doctor save(Doctor doctor) {
-		// TODO Auto-generated method stub
+		doctor.setPassword(passwardEncoder.encode(doctor.getPassword()));
 		return doctorRepository.save(doctor);
 	}
 
+	public Doctor findbyEmail(String email) {
+		// TODO Auto-generated method stub
+		return doctorRepository.findByEmail(email);
+	}
 }

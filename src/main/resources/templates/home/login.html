@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Sign-up</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<title>login</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">AppointmentConsultation</a>
+	</nav>
 	
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<div class="container">
+	
+		<form action="/login" method="post">
+		<h3>Login</h3>
+			<div class="form-group">
+				<div class="col-md-9">
+					<label>Email</label>
+					 <input type="text" class="form-control" placeholder="E-mail" name="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-9">
+					<label>Password</label>
+					 <input type="password" class="form-control" placeholder="Senha" name="password">
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Login</button>
+			</div>
+			<div class="form-group">
+				<div class=" col-md-9">
+				<div class="alert alert-danger" role="alert" th:if="${param.error}">
+					Não foi possivel fazer login!
+				</div>
+				</div>
+			</div>
+			<div class="form-group">
+			<span>Não possui conta? <a href="/signup">Registre-se aqui!</a></span>
+			</div>
+		</form>
+	</div>
+	
+	<div class="alert alert-info" role="alert" th:if="${param.logout}">
+			Usuário desconectado
+		</div>
+
+	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

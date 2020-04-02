@@ -17,20 +17,16 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Data</th>
-      <th scope="col">Valor</th>
     </tr>
   </thead>
   <tbody>
     <tr th:each="appointmentConsultation: ${doctorIndex}">
-    <th scope="row">
+    <td scope="row">
     	<span th:text="${appointmentConsultation.id}"></span>
-    </th>
-      <th>
-      	<span th:text="${appointmentConsultation.date}"></span>
-      </th>
+    </td>
       <td>
-		<span th:text="${appointmentConsultation.value}"></span>
-	  </td>
+      	<span th:text="${#dates.format(appointmentConsultation.date, 'dd/MM/yyyy')}"></span>
+      </td>
     </tr>
 
   </tbody>

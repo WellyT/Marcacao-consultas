@@ -13,7 +13,27 @@
 <body>
   <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
   
-  <h1 style="text-align: center;">Welcome</h1>
+  <div class="container">
+	 <div  th:each="appointmentConsultation : ${appointments}">
+	  	<div class="card bg-light mb-3">
+	  	
+		  	<div class="card-header">
+		  		<h2>Appointment day</h2>
+		  	</div>
+	  		<div class="card-body">
+	  			<span th:text="${#dates.format(appointmentConsultation.date, 'dd/MM/yyyy')}"></span>
+	  		</div>
+	  		<div class="card-footer bg-light">
+	  			<p>
+					<a th:href="@{/edit/{id}(id=${appointmentConsultation.id})}">Edit</a> |
+					<a th:href="@{/delete/{id}(id=${appointmentConsultation.id})}">Delete</a> |
+					<a th:if="${!appointmentConsultation.done}" th:href="@{/conclude/{id}(id=${appointmentConsultation.id})}">Conclude</a> 
+				</p>
+	  		</div>
+	  		
+	  	</div>
+	  </div>
+  </div>
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>

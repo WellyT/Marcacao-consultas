@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+>
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <title>Insert title here</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -19,11 +26,20 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbar-app">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="/">Home</a>
-				<a class="nav-item nav-link" href="/mark">Mark</a>
+			<ul class="nav navbar-nav">
+			<li>	<a class="nav-item nav-link" href="/">Home</a></li>
+			<li>	<a class="nav-item nav-link" href="/mark">Mark</a></li>
+			<li sec:authorize="hasRole('RL_Doctor')">	<a class="nav-item nav-link" href="/doctorIndex">ConsultList</a></li>
 
-			</div>
+			</ul>
+			
+			<form action="/logout" method="post" class="navbar-form navbar-right">
+				<button type="submit" class="nav-item btn btn-warning">
+					 <span class="glyphicon glyphicon-off"></span>
+					Sair
+				</button>
+				
+			</form>
 		</div>
 	</nav>
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
