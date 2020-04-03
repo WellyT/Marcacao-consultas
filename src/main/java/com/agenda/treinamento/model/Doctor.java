@@ -37,8 +37,8 @@ public class Doctor{
 	private String password;
 	private String profission;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<AppointmentConsultation> contultation;
+	@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY)
+	private List<AppointmentConsultation> appointment;
 	
 	public long getId() {
 		return id;
@@ -96,12 +96,15 @@ public class Doctor{
 		this.profission = formation;
 	}
 
-	public List<AppointmentConsultation> getContultation() {
-		return contultation;
+	public List<AppointmentConsultation> getAppointment() {
+		return appointment;
 	}
 
-	public void setContultation(List<AppointmentConsultation> contultation) {
-		this.contultation = contultation;
+	public void setAppointment(List<AppointmentConsultation> appointment) {
+		this.appointment = appointment;
 	}
+
+
+
 
 }

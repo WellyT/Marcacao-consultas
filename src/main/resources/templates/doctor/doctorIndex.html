@@ -11,21 +11,38 @@
 
 </head>
 <body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
 <section>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Data</th>
+      <th >Data</th>
+      <th>Situação</th>
+      <th>Concluir</th>
+      <th>Profissão</th>
     </tr>
   </thead>
   <tbody>
-    <tr th:each="appointmentConsultation: ${doctorIndex}">
+    <tr th:if="${!appointmentConsultation.done}" th:each="appointmentConsultation: ${doctorIndex}">
     <td scope="row">
     	<span th:text="${appointmentConsultation.id}"></span>
     </td>
       <td>
       	<span th:text="${#dates.format(appointmentConsultation.date, 'dd/MM/yyyy')}"></span>
+      </td>
+      <td>
+      	<span th:if="${!appointmentConsultation.done}" style="color: red;">
+      		<b>Waiting</b>
+      	</span>
+      </td>
+      <td>
+      	<a th:if="${!appointmentConsultation.done}" th:href="@{/conclude/{id}(id=${appointmentConsultation.id})}">Conclude</a> 
+      </td>
+      <td>
+      	<span th:text="${appointmentConsultation.doctor.profission}"></span>
       </td>
     </tr>
 

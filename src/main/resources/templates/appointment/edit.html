@@ -14,11 +14,20 @@
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div class="container">
 		<h2>Edit</h2>
-    	<form method="post" class="form-horizontal" action="/edit" th:object="${appointment}">
+    	<form method="post" class="form-horizontal col-md-3" action="/edit" th:object="${appointment}">
     		<input type="hidden" th:field="*{id}" />
-		    <div class="form-group col-md-3">
+		    <div class="form-group ">
 				<label for="input-1">Date</label>
 				<input id="input-1" class="form-control" placeholder="Date" name="date" type="Date"/>
+			</div>
+				<div class="form-group input-group-prepend mb-2">	
+				<label for="doctorsP">Doctor</label>
+				<select th:field="*{doctor.id}" class=" form-control custom-select" id="doctorsP">
+				    <option th:each="doctor: ${doctors}" th:value="${doctor.id}" th:text="${doctor.profission}">
+				    
+				    </option>
+				    
+				 </select>
 			</div>
 			
 		  <input type="submit" class="btn btn-primary form-control" value="Salvar"/>

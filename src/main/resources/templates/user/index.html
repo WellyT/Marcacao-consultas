@@ -14,20 +14,20 @@
   <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
   
   <div class="container">
-	 <div  th:each="appointmentConsultation : ${appointments}">
-	  	<div class="card bg-light mb-3">
+	 <div class="col-md-4 float-left" th:each="appointmentConsultation : ${appointments}">
+	  	<div class="card bg-light mb-3 mt-4">
 	  	
 		  	<div class="card-header">
-		  		<h2>Appointment day</h2>
+		   		<span th:text="${appointmentConsultation.doctor.profission}"></span>
 		  	</div>
 	  		<div class="card-body">
 	  			<span th:text="${#dates.format(appointmentConsultation.date, 'dd/MM/yyyy')}"></span>
 	  		</div>
 	  		<div class="card-footer bg-light">
 	  			<p>
-					<a th:href="@{/edit/{id}(id=${appointmentConsultation.id})}">Edit</a> |
-					<a th:href="@{/delete/{id}(id=${appointmentConsultation.id})}">Delete</a> |
-					<a th:if="${!appointmentConsultation.done}" th:href="@{/conclude/{id}(id=${appointmentConsultation.id})}">Conclude</a> 
+					<a th:if="${!appointmentConsultation.done}" th:href="@{/edit/{id}(id=${appointmentConsultation.id})}">Edit</a>
+					<span th:if="${!appointmentConsultation.done}">|</span>
+					<a th:href="@{/delete/{id}(id=${appointmentConsultation.id})}">Delete</a>
 				</p>
 	  		</div>
 	  		

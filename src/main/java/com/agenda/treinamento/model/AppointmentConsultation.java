@@ -35,7 +35,7 @@ public class AppointmentConsultation {
 	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "doctor_profission")
+	@JoinColumn(name = "doctor_id")
 	private Doctor doctor;
 	
 	public long getId() {
@@ -63,6 +63,12 @@ public class AppointmentConsultation {
 	public void setUser(User user) {
 		this.user = user;
 	}
+/*	public String getProfission() {
+		return profission;
+	}
+	public void setProfission(String profission) {
+		this.profission = profission;
+	}*/
 	public Doctor getDoctor() {
 		return doctor;
 	}
